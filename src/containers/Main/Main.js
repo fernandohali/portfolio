@@ -15,12 +15,12 @@ export function Main() {
       <InfoContainer>
         <Name>Ei, eu sou Fernando Hali</Name>
         <Profissao>
-          Sou <span className="highlight">desenvolvedor software</span> e
-          experiência de software
+          Crio <span className="highlight"> software</span> e experiência de
+          projetos
         </Profissao>
         <Sobremim>
-          Sou um programador qualificado, especializado em soluções inovadoras,
-          com habilidades para transformar desafios em oportunidades.
+          Sou um programador, especializado em soluções inovadoras, com
+          habilidades para transformar desafios em oportunidades.
         </Sobremim>
         <Button>Entre em Contato</Button>
       </InfoContainer>
