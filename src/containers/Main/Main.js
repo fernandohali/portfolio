@@ -13,7 +13,7 @@ export function Main() {
   return (
     <Container>
       <InfoContainer>
-        <Name>Ei, eu sou Fernando Hali</Name>
+        <Name>Olá, sou Fernando Hali</Name>
         <Profissao>
           Crio <span className="highlight"> software</span> e experiência de
           projetos

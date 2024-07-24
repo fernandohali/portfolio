@@ -9,6 +9,8 @@ export const Container = styled.div`
   text-align: left;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
+  border-radius: 2px;
+  border-bottom: 1px solid blue;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -28,7 +30,7 @@ export const InfoContainer = styled.div`
 `;
 
 export const Name = styled.h1`
-  font-size: 15px;
+  font-size: 13px;
   color: #000;
   font-weight: bold;
   background-color: transparent;
@@ -86,12 +88,12 @@ export const Sobremim = styled.p`
 
 export const Button = styled.button`
   background-color: #5e3bee;
-  width: 137px;
+  width: 123px;
   height: 51px;
   color: white;
   border: none;
   margin-top: 41px;
-  padding: 0.75rem 0.6rem;
+  padding: 0.75rem 0.2rem;
   font-size: 15px;
   cursor: pointer;
   display: flex;
@@ -118,6 +120,11 @@ export const Img = styled.img`
   background-color: transparent;
 
   @media (max-width: 768px) {
+    margin-left: 0;
+    margin-top: 2rem;
+    max-width: 300px;
+  }
+  @media (max-width: 980px) {
     margin-left: 0;
     margin-top: 2rem;
     max-width: 300px;
