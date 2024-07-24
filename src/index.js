@@ -1,12 +1,14 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import GlobalStyle from "./Styles/globalStyle";
 import Home from "./containers/Home/Home";
 
+const container = document.getElementById("root");
+const root = createRoot(container); // Cria um root container
 
-ReactDOM.render(
+root.render(
   <>
-    <Home/> <GlobalStyle />
-  </>,
-  document.getElementById("root")
+    <Home /> 
+    <GlobalStyle />
+  </>
 );
