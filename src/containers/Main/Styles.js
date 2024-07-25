@@ -58,7 +58,6 @@ export const Profissao = styled.h2`
 
   .highlight {
     font-family: "Roboto", sans-serif;
-    font-weight: bold;
     background-color: transparent;
     color: #5e3bee;
   }
@@ -69,8 +68,7 @@ export const Sobremim = styled.p`
   width: 481px;
 
   background-color: transparent;
-  font-family: "Roboto", sans-serif; /* Aplicando a fonte */
-
+  
   font-weight: lighter;
   overflow-wrap: break-word; /* Quebra de texto automática */
 
