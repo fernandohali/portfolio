@@ -38,17 +38,17 @@ export const Experiencia = styled.h2`
 
 export const SkillsWrapper = styled.div`
   display: flex;
-
-  overflow-x: hidden; /* Oculta a rolagem horizontal */
+  overflow-x: hidden; /* Permite a rolagem horizontal */
   padding: 20px 0;
-  white-space: nowrap; /* Impede que o conteúdo se quebre em múltiplas linhas */
+  white-space: nowrap; /* Impede a quebra de linha */
+  position: relative; /* Necessário para scroll contínuo */
 
   &::-webkit-scrollbar {
-    display: none; /* Oculta a barra de rolagem */
+    display: none; /* Oculta a barra de rolagem no Chrome/Safari */
   }
 
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  -ms-overflow-style: none; /* Oculta a barra de rolagem no IE */
+  scrollbar-width: none; /* Oculta a barra de rolagem no Firefox */
 `;
 
 export const BoxSkill = styled.div`
@@ -60,7 +60,6 @@ export const BoxSkill = styled.div`
   width: 250px;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
   border: 1px solid blue;
 
   &:last-child {
@@ -86,13 +85,10 @@ export const TituloSkill = styled.h3`
 export const InforSkill = styled.p`
   font-size: 14px;
   background-color: transparent;
-
   font-weight: lighter;
   overflow-wrap: break-word; /* Quebra de texto automática */
-
   word-wrap: break-word; /* Quebra de texto automática */
   color: #282938;
-
   white-space: pre-wrap;
   text-align: justify;
 
