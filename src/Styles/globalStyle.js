@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 export default createGlobalStyle`
 
 *{
-   background-color: #FFFFFFCC;
+   background-color: #FFFFFF8A;
    margin: 0px;
    padding: 0px;
    box-sizing: border-box;  

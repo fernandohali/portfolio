@@ -38,17 +38,28 @@ export const Experiencia = styled.h2`
 
 export const SkillsWrapper = styled.div`
   display: flex;
-  overflow-x: hidden; /* Permite a rolagem horizontal */
+  overflow-x: auto; /* Permite a rolagem horizontal */
   padding: 20px 0;
   white-space: nowrap; /* Impede a quebra de linha */
-  position: relative; /* Necessário para scroll contínuo */
+  position: relative;
 
   &::-webkit-scrollbar {
-    display: none; /* Oculta a barra de rolagem no Chrome/Safari */
+    display: block; /* Exibe a barra de rolagem no Chrome/Safari */
+    height: 12px; /* Altura da barra de rolagem */
   }
 
-  -ms-overflow-style: none; /* Oculta a barra de rolagem no IE */
-  scrollbar-width: none; /* Oculta a barra de rolagem no Firefox */
+  &::-webkit-scrollbar-thumb {
+    background-color: #888; /* Cor da barra de rolagem */
+    border-radius: 10px; /* Bordas arredondadas */
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Cor da barra de rolagem ao passar o mouse */
+  }
+
+  -ms-overflow-style: auto; /* Exibe a barra de rolagem no IE */
+  scrollbar-width: auto; /* Exibe a barra de rolagem no Firefox */
+  scrollbar-color: #888 #f0f4f8; /* Cor da barra de rolagem no Firefox */
 `;
 
 export const BoxSkill = styled.div`

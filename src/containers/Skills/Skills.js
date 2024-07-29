@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import {
   Container,
   MySkills,
@@ -17,19 +17,6 @@ import iconsite from "../../assets/IconsExpertise/iconSite.png";
 
 export function Skills() {
   const skillsRef = useRef(null);
-
-  useEffect(() => {
-    const scrollContainer = skillsRef.current;
-    const scrollStep = 1; // Ajuste a velocidade de rolagem aqui
-    const scrollInterval = setInterval(() => {
-      scrollContainer.scrollLeft += scrollStep;
-      if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
-        scrollContainer.scrollLeft = 0; // Reinicia o scroll para o início
-      }
-    }, 50); // Ajuste a frequência de rolagem aqui (milissegundos)
-
-    return () => clearInterval(scrollInterval); // Limpa o intervalo quando o componente é desmontado
-  }, []);
 
   const skills = [
     {
@@ -70,9 +57,9 @@ Descrição: Criação de um portfólio pessoal utilizando React.js, projetado p
   return (
     <Container>
       <MySkills>Minhas Habilidades</MySkills>
-      <Experiencia>Minha experiência</Experiencia>
+      <Experiencia>Minha Experiência</Experiencia>
       <SkillsWrapper ref={skillsRef}>
-        {skills.concat(skills).map((skill, index) => (
+        {skills.map((skill, index) => (
           <BoxSkill key={index}>
             <Img src={skill.imgSrc} alt={skill.title} />
             <TituloSkill>{skill.title}</TituloSkill>
