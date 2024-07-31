@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 import {
   Container,
   Title,
@@ -7,7 +8,6 @@ import {
   Input,
   TextArea,
   Select,
-  Checkbox,
   Button,
 } from "./Styles.js";
 
@@ -32,15 +32,34 @@ export function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Lógica para enviar os dados do formulário
     console.log("Dados do formulário enviados:", formData);
+
+    emailjs
+      .send(
+      )
+      .then(
+        (response) => {
+          console.log("EMAIL ENVIADO", response.status, response.text);
+          setFormData({
+            firstName: "",
+            lastName: "",
+            email: "",
+            phoneNumber: "",
+            topic: "",
+            message: "",
+            acceptTerms: false,
+          });
+        },
+        (err) => {
+          console.log("ERRO", err);
+        }
+      );
   };
 
   return (
     <Container>
       <Title>Entrar em contato</Title>
       <Subtitle>Contate-me</Subtitle>
-
       <Form onSubmit={handleSubmit}>
         <Input
           type="text"
@@ -84,6 +103,7 @@ export function Contact() {
           <option value="topic1">Tópico 1</option>
           <option value="topic2">Tópico 2</option>
           <option value="topic3">Tópico 3</option>
+          <option value="topic4">Outros</option>
         </Select>
         <TextArea
           name="message"
@@ -92,16 +112,6 @@ export function Contact() {
           onChange={handleChange}
           required
         />
-        <Checkbox>
-          <input
-            type="checkbox"
-            name="acceptTerms"
-            checked={formData.acceptTerms}
-            onChange={handleChange}
-            required
-          />
-          <span>Eu aceito os termos</span>
-        </Checkbox>
         <Button type="submit">Enviar</Button>
       </Form>
     </Container>
