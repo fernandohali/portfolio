@@ -11,6 +11,7 @@ import {
   Button,
   NameContainer,
   MaskedInput,
+  ContantContainer,
 } from "./Styles.js";
 
 // Função principal do componente de contato
@@ -93,23 +94,26 @@ export function Contact() {
             required
           />
         </NameContainer>
-        <Input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <MaskedInput
-          mask="(99) 99999-9999"
-          type="tel"
-          name="phoneNumber"
-          placeholder="Número de telefone"
-          value={formData.phoneNumber}
-          onChange={handleChange}
-          required
-        />
+        <ContantContainer>
+          <Input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+          <MaskedInput
+            mask="(99) 99999-9999"
+            type="tel"
+            name="phoneNumber"
+            placeholder="Número de telefone"
+            value={formData.phoneNumber}
+            onChange={handleChange}
+            required
+          />
+        </ContantContainer>
+
         <Select
           name="topic"
           value={formData.topic}
@@ -129,7 +133,7 @@ export function Contact() {
           onChange={handleChange}
           required
         />
-        <Button type="submit">Enviar</Button>
+        <Button type="handleSubmit">Enviar</Button>
       </Form>
     </Container>
   );

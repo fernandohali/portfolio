@@ -36,8 +36,8 @@ export function RecentProjects() {
 
   return (
     <Container>
-      <RecentProj>Recent Projects</RecentProj>
-      <MyPortfolio>My Portfolio</MyPortfolio>
+      <RecentProj>Projetos Recentes</RecentProj>
+      <MyPortfolio>Meu portfolio</MyPortfolio>
       <ProjectsContainer>
         {projects.map((project, index) => (
           <ProjectCard key={index}>
@@ -45,7 +45,7 @@ export function RecentProjects() {
             <h3>{project.title}</h3>
             <p>{project.description}</p>
             <ProjectLink href={project.link} target="_blank">
-              View Project
+              Ver Projeto
             </ProjectLink>
           </ProjectCard>
         ))}

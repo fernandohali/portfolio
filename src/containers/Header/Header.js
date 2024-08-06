@@ -5,12 +5,20 @@ export function Header() {
   return (
     <Container>
       <NavItemsContainer>
-        <NavItem>Home</NavItem>
-        <NavItem>Portfolio</NavItem>
-        <NavItem>Sobre mim</NavItem>
+        <NavItem>
+          <a href="#home">Home</a>
+        </NavItem>
+        <NavItem>
+          <a href="#portfolio">Portfolio</a>
+        </NavItem>
+        <NavItem>
+          <a href="#sobreMim">Sobre mim</a>
+        </NavItem>
       </NavItemsContainer>
       <Div>
-        <NavItem>Contate-me</NavItem>
+        <NavItem>
+          <a href="#contateMe">Contate-me</a>
+        </NavItem>
       </Div>
     </Container>
   );

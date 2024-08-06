@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color: #f5fcff;
+  background-color: #f5fcff83;
   display: flex;
   align-items: center;
   height: auto;
   padding: 2rem 2rem 4rem;
   text-align: left;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 1px 8px 20px 2px rgba(0, 0, 0, 0.1); // Sombra na parte inferior
   margin: 0 auto;
-  border-radius: 2px;
-  border-bottom: 1px solid blue;
+  border-radius: 1px;
+  border-bottom: 1px solid #0c1cf53d;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -23,7 +23,15 @@ export const InfoContainer = styled.div`
   flex: 1;
   background-color: transparent;
   font-family: "Roboto", sans-serif; /* Aplicando a fonte ao InfoContainer */
+
   @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo */
+    text-align: center; /* Centraliza o texto */
+
+    flex: 1;
+    align-items: center;
     max-width: 100%;
     margin-bottom: 2rem;
   }
@@ -68,7 +76,7 @@ export const Sobremim = styled.p`
   width: 481px;
 
   background-color: transparent;
-  
+
   font-weight: lighter;
   overflow-wrap: break-word; /* Quebra de texto automática */
 
@@ -105,12 +113,8 @@ export const Button = styled.button`
     background-color: #5548c8;
   }
 
-  @media (max-width: 466px) {
-    flex-direction: column;
-    text-align: center;
-  }
+ 
 `;
-
 export const Img = styled.img`
   max-width: 600px;
   max-height: 450px;
