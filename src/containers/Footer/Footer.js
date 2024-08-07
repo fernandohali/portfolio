@@ -27,9 +27,8 @@ export function Footer() {
       <ContainerComponetes>
         <LinksContainer>
           <a href="#home">Home</a>
-          <a href="#portfolio">Portfólio</a>
-          <a href="#SobreMim">Sobre mim</a>
-          <a href="#Contato">Contate-me</a>
+          <a href="#sobreMim">Sobre mim</a>
+          <a href="#contateMe">Contate-me</a>
         </LinksContainer>
 
         <Menu className={isActive ? "active" : ""}>
