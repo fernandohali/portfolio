@@ -8,11 +8,14 @@ export function Header() {
         <NavItem>
           <a href="#home">Home</a>
         </NavItem>
-        <NavItem>
-          <a href="#portfolio">Portfolio</a>
-        </NavItem>
+       {/*  <NavItem>
+          <a href="#portfolio">Portfólio</a>
+        </NavItem> */}
         <NavItem>
           <a href="#sobreMim">Sobre mim</a>
+        </NavItem>
+        <NavItem>
+          <a href="#skills">Experiência</a>
         </NavItem>
       </NavItemsContainer>
       <Div>

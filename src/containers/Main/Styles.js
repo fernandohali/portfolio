@@ -56,6 +56,7 @@ export const Profissao = styled.h2`
   margin: 20px 20px 20px 0px;
   background-color: transparent;
   font-family: "Roboto", sans-serif;
+  font-weight: 700;
   overflow-wrap: break-word; /* Quebra de texto automática */
   word-wrap: break-word; /* Quebra de texto automática */
   color: #282938;
@@ -112,14 +113,19 @@ export const Button = styled.button`
   &:hover {
     background-color: #5548c8;
   }
-
- 
+  a {
+    background-color: transparent;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+  }
 `;
 export const Img = styled.img`
   max-width: 600px;
   max-height: 450px;
   margin-left: 4rem;
   background-color: transparent;
+  mix-blend-mode: multiply; /* Ajuste o modo de mistura */
 
   @media (max-width: 768px) {
     margin-left: 0;

@@ -37,7 +37,7 @@ export function RecentProjects() {
   return (
     <Container>
       <RecentProj>Projetos Recentes</RecentProj>
-      <MyPortfolio>Meu portfolio</MyPortfolio>
+      <MyPortfolio>Meu portfólio</MyPortfolio>
       <ProjectsContainer>
         {projects.map((project, index) => (
           <ProjectCard key={index}>

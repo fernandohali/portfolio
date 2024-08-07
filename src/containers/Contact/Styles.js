@@ -4,11 +4,12 @@ import InputMask from "react-input-mask";
 export const Container = styled.div`
   padding: 2rem;
   margin: 0 auto;
-  margin-bottom: 20px;
+  margin-bottom: 3rem;
   max-width: 600px; /* Ajusta a largura máxima para ser mais responsiva */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border: 1px solid blue;
   border-radius: 8px;
+  margin-top: 30px;
 
   @media (max-width: 600px) {
     margin-left: 10px;

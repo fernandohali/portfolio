@@ -22,9 +22,11 @@ export function Main() {
           Sou um programador, especializado em soluções inovadoras, com
           habilidades para transformar desafios em oportunidades.
         </Sobremim>
-        <Button>Entre em Contato</Button>
+        <Button>
+          <a href="#contateMe">Entre em Contato</a>
+        </Button>
       </InfoContainer>
-      <Img src={require("../../assets/foto.png")} alt="Fernando Hali" />
+      <Img src={require("../../assets/Foto.jpg")} alt="Fernando Hali" />
     </Container>
   );
 }

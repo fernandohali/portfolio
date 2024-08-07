@@ -4,7 +4,7 @@ import { Container, Img, InfoContainer, AboutMe, AboutText } from "./Styles";
 export function SobreMim() {
   return (
     <Container>
-      <Img src={require("../../assets/foto.png")} alt="Fernando Hali" />
+      <Img src={require("../../assets/Foto2.jpg")} alt="Fernando Hali" />
       <InfoContainer>
         <AboutMe>Sobre mim</AboutMe>
         <AboutText>
