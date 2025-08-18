@@ -11,17 +11,23 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <section id="home">
-        <Main />
+      <section id="home" className="section-padding">
+        <div className="container">
+          <Main />
+        </div>
       </section>
-      <section id="skills">
-        <Skills />
+      <section id="skills" className="section-padding">
+        <div className="container">
+          <Skills />
+        </div>
       </section>
-      <section id="portfolio">{/* <RecentProjects /> */}</section>
-      <section id="sobreMim">
+      <section id="portfolio" className="section-padding">
+        <div className="container">{/* <RecentProjects /> */}</div>
+      </section>
+      <section id="sobreMim" className="section-padding">
         <SobreMim />
       </section>
-      <section id="contateMe">
+      <section id="contateMe" className="section-padding">
         <Contact />
       </section>
       <Footer />
