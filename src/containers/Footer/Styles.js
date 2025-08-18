@@ -1,59 +1,96 @@
 import styled from "styled-components";
 
 // Container principal do componente de rodapé
-export const Container = styled.div`
-  background-color: #f5fcff;
-  margin: 0 auto;
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
+export const Container = styled.footer`
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d3748 100%);
+  color: white;
+  padding: 3rem 2rem 1rem;
+  position: relative;
+  overflow: hidden;
 
-  @media (max-width: 740px) {
-    padding: 1rem;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle at 20% 80%,
+        rgba(102, 126, 234, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 20%,
+        rgba(118, 75, 162, 0.1) 0%,
+        transparent 50%
+      );
+    pointer-events: none;
   }
+
+  @media (max-width: 768px) {
+    padding: 2rem 1rem 1rem;
+  }
+`;
+
+export const ContentWrapper = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 `;
 
 export const ContainerComponetes = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  background-color: transparent;
+  margin-bottom: 2rem;
 
-  @media (max-width: 740px) {
+  @media (max-width: 768px) {
     flex-direction: column;
-    align-items: center;
-    width: 100%; // Garante que os itens filhos ocupem a largura total do contêiner
+    gap: 2rem;
+    text-align: center;
   }
 `;
 
 // Container para os links estáticos
-export const LinksContainer = styled.div`
-  background-color: transparent;
+export const LinksContainer = styled.nav`
   display: flex;
+  gap: 2rem;
   flex: 1;
-  align-items: flex-start;
-  justify-content: left;
-  gap: 20px;
-  margin-bottom: 20px;
 
   a {
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
-    color: #333;
     font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      transition: width 0.3s ease;
+    }
 
     &:hover {
-      color: #0073e6;
+      color: white;
+      transform: translateY(-2px);
+
+      &:before {
+        width: 100%;
+      }
     }
   }
 
-  @media (max-width: 740px) {
+  @media (max-width: 768px) {
     flex-direction: column;
-    gap: 10px;
-    width: 100%; // Garante que os links ocupem a largura total do contêiner
-    align-items: center; // Centraliza os links na coluna
+    gap: 1rem;
+    align-items: center;
   }
 `;
 
@@ -62,52 +99,60 @@ export const Menu = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: transparent;
   position: relative;
   width: 280px;
   height: 220px;
 
-  @media (max-width: 740px) {
-    margin-top: 2rem;
+  @media (max-width: 768px) {
+    width: 240px;
+    height: 180px;
   }
 
   &.active .toggle {
     transform: rotate(360deg);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), 0 0 0 2px #333, 0 0 0 8px #fff;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4),
+      0 0 0 3px rgba(102, 126, 234, 0.3);
+    background: linear-gradient(135deg, #667eea, #764ba2);
   }
 `;
 
 // Botão de toggle para abrir/fechar o menu
 export const Toggle = styled.div`
-  background-color: transparent;
   position: relative;
-  width: 60px;
-  height: 60px;
-  background: #fff;
+  width: 70px;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
   border-radius: 50%;
-  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #333;
-  font-size: 2rem;
+  color: #1a1a1a;
+  font-size: 1.5rem;
   cursor: pointer;
-  transition: transform 1.25s, box-shadow 1.25s;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 5;
+  border: 2px solid rgba(255, 255, 255, 0.2);
 
   img {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
+    transition: all 0.3s ease;
   }
 
   &:hover {
-    background: #f0f0f0;
+    transform: scale(1.1);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.3);
+
+    img {
+      transform: scale(1.1);
+    }
   }
 
-  @media (max-width: 740px) {
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
+  @media (max-width: 768px) {
+    width: 60px;
+    height: 60px;
 
     img {
       width: 30px;
@@ -118,7 +163,6 @@ export const Toggle = styled.div`
 
 // Lista de ícones sociais
 export const SocialIconList = styled.ul`
-  background-color: transparent;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -135,7 +179,7 @@ export const SocialIconList = styled.ul`
     position: absolute;
     left: 0;
     list-style: none;
-    transition: transform 0.5s, opacity 0.5s;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     transform: rotate(calc(360deg / 8 * var(--i)));
     transform-origin: 140px;
     opacity: ${(props) => (props.isActive ? 1 : 0)};
@@ -147,85 +191,65 @@ export const SocialIconList = styled.ul`
       transform: rotate(calc(360deg / -8 * var(--i)));
       width: 60px;
       height: 60px;
-      background-color: #fff;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      font-size: 1.75rem;
+      font-size: 1.5rem;
       color: var(--clr);
-      box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
-      transition: font-size 0.5s, box-shadow 0.5s;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 2px solid rgba(255, 255, 255, 0.2);
 
       img {
-        width: 30px;
-        height: 30px;
+        width: 28px;
+        height: 28px;
+        transition: transform 0.3s ease;
       }
-    }
 
-    &:hover a {
-      font-size: 2.5rem;
-      box-shadow: 0 0 0 2px var(--clr), 0 0 0 6px #fff;
+      &:hover {
+        transform: rotate(calc(360deg / -8 * var(--i))) scale(1.2)
+          translateY(-5px);
+        box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4),
+          0 0 0 3px rgba(102, 126, 234, 0.3);
+
+        img {
+          transform: scale(1.1);
+        }
+      }
     }
   }
 
-  @media (max-width: 740px) {
+  @media (max-width: 768px) {
     li {
+      transform-origin: 120px;
+
       a {
         width: 50px;
         height: 50px;
-        font-size: 1.5rem;
 
         img {
-          height: min-content;
-          width: 25px;
-          height: 25px;
+          width: 24px;
+          height: 24px;
         }
       }
-
-      &:hover a {
-        font-size: 2rem;
-      }
     }
   }
 `;
 
-// Texto do rodapé
-export const FooterText = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-  color: #333;
-
-  span {
-    margin-bottom: 10px;
-  }
-
-  @media (max-width: 466px) {
-    margin-top: 10px;
-  }
-`;
-
-// Links de políticas
-export const PolicyLinks = styled.div`
-  display: flex;
-  gap: 20px;
-
-  a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-
-    &:hover {
-      color: #0073e6;
-    }
-  }
-
-  @media (max-width: 466px) {
-    flex-direction: column;
-    gap: 10px;
-  }
+// Separador visual
+export const Divider = styled.div`
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  margin: 2rem 0 1rem;
 `;
 
 // Rodapé inferior para texto e links de política
@@ -233,54 +257,40 @@ export const FooterBottom = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: transparent;
   width: 100%;
-  margin-top: 20px;
-  color: #333;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
 
-  span {
-    margin-right: 20px;
-  }
-
-  div {
-    display: flex;
-    gap: 20px;
-
-    a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-
-      &:hover {
-        color: #0073e6;
-      }
-    }
-  }
-
-  @media (max-width: 466px) {
+  @media (max-width: 768px) {
     flex-direction: column;
-    align-items: flex-start;
-
-    span {
-      margin-right: 0;
-      margin-bottom: 10px;
-    }
-
-    div {
-      flex-direction: column;
-      gap: 10px;
-    }
+    gap: 1rem;
+    text-align: center;
   }
 `;
 
-// Tarja no meio (opcional)
-export const MiddleBar = styled.div`
-  width: 100%;
-  height: 2px;
-  background-color: #333;
-  margin: 20px 0;
+export const CopyrightText = styled.span`
+  font-weight: 400;
+`;
 
-  @media (max-width: 466px) {
-    margin: 10px 0;
+// Links de políticas
+export const PolicyLinks = styled.div`
+  display: flex;
+  gap: 1.5rem;
+
+  a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-weight: 400;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: white;
+      transform: translateY(-1px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 `;
