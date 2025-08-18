@@ -1,145 +1,281 @@
 import styled from "styled-components";
 import InputMask from "react-input-mask";
 
-export const Container = styled.div`
-  padding: 2rem;
-  margin: 0 auto;
-  margin-bottom: 3rem;
-  max-width: 600px; /* Ajusta a largura máxima para ser mais responsiva */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid blue;
-  border-radius: 8px;
-  margin-top: 30px;
+export const Container = styled.section`
+  padding: 5rem 2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(247, 250, 252, 0.9) 0%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
+  position: relative;
+  overflow: hidden;
 
-  @media (max-width: 600px) {
-    margin-left: 10px;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle at 20% 80%,
+        rgba(102, 126, 234, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 20%,
+        rgba(118, 75, 162, 0.1) 0%,
+        transparent 50%
+      );
+    pointer-events: none;
+  }
+
+  @media (max-width: 768px) {
+    padding: 3rem 1rem;
+  }
+`;
+
+export const FormWrapper = styled.div`
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+
+  @media (max-width: 768px) {
+    padding: 2rem;
+    border-radius: 20px;
   }
 `;
 
 export const Title = styled.h2`
   text-align: center;
-  margin-bottom: 1rem;
-  font-size: 2rem; /* Ajuste o tamanho da fonte conforme necessário */
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+  position: relative;
+
+  &:before {
+    content: "Contato";
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    color: #667eea;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
 `;
 
-export const Subtitle = styled.h3`
+export const Subtitle = styled.p`
   text-align: center;
-  margin-bottom: 1rem;
-  font-size: 1.5rem; /* Ajuste o tamanho da fonte conforme necessário */
+  font-size: 1.1rem;
+  color: #4a5568;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+
+  &:after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 2px;
+    margin: 1rem auto 0;
+  }
 `;
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
 `;
 
 export const Input = styled.input`
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  border: 2px solid rgba(102, 126, 234, 0.1);
+  border-radius: 12px;
   font-size: 1rem;
-  flex: 1;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid blue;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #1a1a1a;
+
+  &::placeholder {
+    color: #9ca3af;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #667eea;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    transform: translateY(-2px);
+  }
+
+  &:hover {
+    border-color: rgba(102, 126, 234, 0.2);
+  }
 `;
 
-//
 export const MaskedInput = styled(InputMask)`
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  border: 2px solid rgba(102, 126, 234, 0.1);
+  border-radius: 12px;
   font-size: 1rem;
-  flex: 1;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid blue;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #1a1a1a;
+
+  &::placeholder {
+    color: #9ca3af;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #667eea;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    transform: translateY(-2px);
+  }
+
+  &:hover {
+    border-color: rgba(102, 126, 234, 0.2);
+  }
 `;
 
 export const Select = styled.select`
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  border: 2px solid rgba(102, 126, 234, 0.1);
+  border-radius: 12px;
   font-size: 1rem;
-  width: 100%;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid blue;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #1a1a1a;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+    border-color: #667eea;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    transform: translateY(-2px);
+  }
+
+  &:hover {
+    border-color: rgba(102, 126, 234, 0.2);
+  }
 `;
 
 export const TextArea = styled.textarea`
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  border: 2px solid rgba(102, 126, 234, 0.1);
+  border-radius: 12px;
   font-size: 1rem;
-  width: 100%;
-  height: 150px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid blue;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #1a1a1a;
+  min-height: 120px;
+  resize: vertical;
+  font-family: inherit;
 
-  @media (max-width: 600px) {
-    element.style {
-      height: 174px;
-      width: 368px;
-    }
+  &::placeholder {
+    color: #9ca3af;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #667eea;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    transform: translateY(-2px);
+  }
+
+  &:hover {
+    border-color: rgba(102, 126, 234, 0.2);
   }
 `;
 
 export const Button = styled.button`
-  padding: 0.75rem;
-  border: none;
-  border-radius: 4px;
-  background-color: #007bff;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
+  border: none;
+  padding: 1rem 2rem;
   font-size: 1rem;
+  font-weight: 600;
+  border-radius: 12px;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid blue;
-  width: 50%;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  margin-top: 1rem;
 
-  margin: 0 auto;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transition: left 0.5s;
+  }
 
-  margin-top: 20px;
   &:hover {
-    background-color: #0056b3;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+
+    &:before {
+      left: 100%;
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px) scale(1.01);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
   }
 `;
 
 export const NameContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
 
-  ${Input} {
-    flex: 1;
-  }
-
   @media (max-width: 600px) {
-    row-gap: 0rem;
-    flex-direction: column;
-
-    ${Input} {
-      margin-right: 0;
-      margin-bottom: 1rem;
-    }
+    grid-template-columns: 1fr;
   }
 `;
 
 export const ContantContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
 
-  ${Input}, ${MaskedInput} {
-    flex: 1;
-  }
-
   @media (max-width: 600px) {
-    row-gap: 0rem;
-    flex-direction: column;
-
-    ${Input}, ${MaskedInput} {
-      margin-right: 0;
-      margin-bottom: 1rem;
-    }
+    grid-template-columns: 1fr;
   }
 `;
