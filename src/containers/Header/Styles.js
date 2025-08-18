@@ -1,81 +1,147 @@
 import styled from "styled-components";
 
 // Container principal do componente
-export const Container = styled.div`
-  background-color: #ffffff; // Cor de fundo branca
-  display: flex; // Usa flexbox para alinhar os itens
-  justify-content: space-between; // Distribui o espaço igualmente entre os itens
-  align-items: center; // Alinha itens verticalmente no centro
-  padding: 1rem 0; // Espaçamento interno
-  margin: 0 auto; // Centraliza o container horizontalmente
+export const Container = styled.header`
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 
-  @media (max-width: 466px) {
-    flex-direction: column; // Muda a direção do flex para coluna em telas pequenas
-    padding: 0.5rem 0; // Reduz o espaçamento interno em telas pequenas
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
   }
 `;
 
 // Container para os itens de navegação
-export const NavItemsContainer = styled.div`
-  display: flex; // Usa flexbox para alinhar os itens
-  justify-content: center; // Alinha itens horizontalmente no centro
-  align-items: center; // Alinha itens verticalmente no centro
-  margin: 0 auto; // Centraliza o container horizontalmente
-  flex: 1; // Faz o container ocupar o espaço disponível
-  @media (max-width: 466px) {
-    flex-direction: column; // Muda a direção do flex para coluna em telas pequenas
+export const NavItemsContainer = styled.nav`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex: 1;
 
-    padding: 0.5rem 0; // Reduz o espaçamento interno em telas pequenas
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
   }
 `;
 
 // Estilização de cada item de navegação
-export const NavItem = styled.h1`
-  font-size: 1rem; // Tamanho da fonte
-  color: #333; // Cor do texto
-  cursor: pointer; // Cursor de ponteiro ao passar o mouse
-  transition: color 0.3s ease; // Transição suave para a cor
-  letter-spacing: 0.1rem; // Espaçamento entre letras
-  margin-right: 2rem; // Espaço entre os itens
+export const NavItem = styled.div`
+  position: relative;
 
   a {
-    text-decoration: none;
-    color: #333;
+    font-size: 0.95rem;
     font-weight: 500;
+    color: #4a5568;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    display: block;
+
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      transform: translateX(-50%);
+      transition: width 0.3s ease;
+    }
 
     &:hover {
-      color: #0073e6;
+      color: #667eea;
+      transform: translateY(-2px);
+
+      &:before {
+        width: 80%;
+      }
+    }
+
+    &:active {
+      transform: translateY(0);
     }
   }
 
-  &:last-child {
-    margin-right: 0; // Remove o espaço à direita do último item
-  }
+  @media (max-width: 768px) {
+    a {
+      font-size: 1rem;
+      padding: 0.75rem 1.5rem;
+      width: 100%;
+      text-align: center;
 
-  &:hover {
-    color: #007bff; // Cor ao passar o mouse
-  }
-
-  @media (max-width: 466px) {
-    font-size: 1.2rem; // Aumenta o tamanho da fonte em telas pequenas
-    margin: 0.5rem 0; // Espaço entre os itens em telas pequenas
+      &:hover {
+        background: rgba(102, 126, 234, 0.1);
+        border-radius: 12px;
+      }
+    }
   }
 `;
 
-// Estilização do elemento Div
+// Estilização do botão de contato
 export const Div = styled.div`
-  border-radius: 5px; // Arredonda os cantos do borda
-  border-style: groove; // Estilo de borda em sulco
-  border-color: blue; // Cor da borda azul
-  border-width: 1px; // Largura da borda
-  margin-right: 20px; // Espaço à direita
-  padding: 10px; // Espaçamento interno
-  display: flex; // Usa flexbox para alinhar os itens}
+  a {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
 
-  margin-left: auto; // Empurra o Div para o final do Container
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+      );
+      transition: left 0.5s;
+    }
 
-  @media (max-width: 466px) {
-    margin: 0px; // Remove margem em telas pequenas
-    padding: 0.5rem 0; // Reduz o espaçamento interno em telas pequenas
+    &:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+
+      &:before {
+        left: 100%;
+      }
+    }
+
+    &:active {
+      transform: translateY(0) scale(1.02);
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+
+    a {
+      display: block;
+      text-align: center;
+      padding: 1rem 2rem;
+    }
   }
 `;
